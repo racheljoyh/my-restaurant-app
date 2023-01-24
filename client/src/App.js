@@ -63,9 +63,9 @@ function App() {
   function removeCartItem(dish_id) {
     axios.delete(`/destroy/${user.id}/${dish_id}`).then(() => {
       setCartNumber(cartNumber - 1);
-      let disc = cart.find((element) => element.id === dish_id);
-      setCartTotal(cartTotal - disc.price);
-      const newDishes = cart.filter((item) => item.id !== dish_id);
+      let dish = cart.find((element) => element.id === dish_id);
+      setCartTotal(cartTotal - dish.price);
+      const newDishes = cart.filter((item) => item.id !== dish.id);
       setCart(newDishes);
     });
   }
@@ -89,7 +89,7 @@ function App() {
           path="/cart"
           element={
             <Cart
-              dishes={dishes}
+              cart={cart}
               removeCartItem={removeCartItem}
               cartRemoveAll={cartRemoveAll}
             />
