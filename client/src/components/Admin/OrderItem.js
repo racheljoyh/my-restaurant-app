@@ -1,5 +1,5 @@
-function OrderItem() {
-  return (  <></>);
+function OrderItem({ oneOrder }) {
+  return <></>;
 }
 
 export default OrderItem;

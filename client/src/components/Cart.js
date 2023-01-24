@@ -1,6 +1,13 @@
 import CartItem from "./CartItem";
 
-function Cart({ cart, removeCartItem, cartRemoveAll, cartTotal }) {
+function Cart({
+  cart,
+  removeCartItem,
+  cartRemoveAll,
+  cartTotal,
+  handleCheckoutClick,
+}) {
+  console.log(cart);
   const allCartItems = cart.map((cartItem) => (
     <CartItem
       key={cartItem.id}
@@ -16,8 +23,10 @@ function Cart({ cart, removeCartItem, cartRemoveAll, cartTotal }) {
         Remove All Items
       </button>
       <div>{allCartItems}</div>
-      <p>Total: {cartTotal}</p>
-      <button className="btn">Place Order</button>
+      <p>Subtotal: ${cartTotal <= 0 ? "0.00" : cartTotal.toFixed(2)}</p>
+      <button onClick={handleCheckoutClick} className="btn">
+        Checkout
+      </button>
     </div>
   );
 }

@@ -41,7 +41,7 @@ class SessionsController < ApplicationController
 
   def create_order
     order = Order.create(:user_id => params[:user_id], :total => params[:total], :identifier => params[:order_id])
-    render json: order, status: :created
+    render json: order, serializer: OrderWithUserSerializer, status: :created
     ShoppingCart.delete_all
   end
 

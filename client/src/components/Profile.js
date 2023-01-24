@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 function Profile({ user, setUser }) {
   const { first_name, last_name, email, username } = user;
+  const [orders, setOrders] = useState([]);
+  const [identifier, setIdentifier] = useState("");
 
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState([]);
@@ -11,6 +14,12 @@ function Profile({ user, setUser }) {
     email: email,
     username: username,
   });
+
+  useEffect(() => {
+    axios.get(`/user_orders/${user.id}`).then((response) => {
+      console.log(response.data);
+    });
+  }, []);
 
   function handleOnChange(e) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -42,6 +51,16 @@ function Profile({ user, setUser }) {
       }
     });
   }
+
+  const allOrders = orders.map((order) => {
+    return (
+      <div key={order.id}>
+        <p>{order.identifier}</p>
+        <p>{order.status}</p>
+      </div>
+    );
+  });
+
   return (
     <div>
       <h1>Profile</h1>
@@ -84,6 +103,7 @@ function Profile({ user, setUser }) {
           <p key={err}>{err}</p>
         ))}
       </div>
+      <div>{allOrders}</div>
     </div>
   );
 }

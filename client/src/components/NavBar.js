@@ -20,13 +20,15 @@ function NavBar({ user, setUser }) {
           <nav>
             <NavLink to="/">Home</NavLink>
             <NavLink to="/menu">Menu</NavLink>
-            <NavLink to="/edit_profile">Account</NavLink>
+
             <NavLink to="/cart">Cart</NavLink>
           </nav>
         ) : (
           <nav>
             <NavLink to="/">Home</NavLink>
             <NavLink to="/menu">Menu</NavLink>
+            <NavLink to="/cart">Cart</NavLink>
+            <NavLink to="/edit_profile">Account</NavLink>
             <NavLink to="/admin">Admin</NavLink>
           </nav>
         )}

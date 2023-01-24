@@ -17,7 +17,8 @@ Rails.application.routes.draw do
   patch '/edit_profile', to: 'users#update_profile'
 
    # order routes
-  post '/orders/:user_id/:order_id', to: 'sessions#create_order'
+  get 'user_orders/:user_id', to: 'orders#user_orders'
+  post '/order/:user_id/:orderId/:price', to: 'sessions#create_order'
 
   # shopping cart
   get 'shopping_cart', to: 'sessions#shopping_cart'
