@@ -37,7 +37,6 @@ function App() {
     fetch("/shopping_cart")
       .then((r) => r.json())
       .then((data) => {
-        console.log(data);
         setCartNumber(data.total_items);
         setCartTotal(data.total_price);
         setCart(data.dishes);
@@ -79,7 +78,14 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route
           path="/menu"
-          element={<Menu dishes={dishes} addToCart={addToCart} />}
+          element={
+            <Menu
+              dishes={dishes}
+              addToCart={addToCart}
+              removeCartItem={removeCartItem}
+              cart={cart}
+            />
+          }
         />
         <Route
           path="/edit_profile"
@@ -92,6 +98,7 @@ function App() {
               cart={cart}
               removeCartItem={removeCartItem}
               cartRemoveAll={cartRemoveAll}
+              cartTotal={cartTotal}
             />
           }
         />

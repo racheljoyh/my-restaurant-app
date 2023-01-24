@@ -1,7 +1,14 @@
 import React from "react";
 
-function Dish({ dish, addToCart }) {
+function Dish({ dish, addToCart, removeCartItem, cart }) {
   const { title, description, price, image } = dish;
+
+  const isFound = cart.some((element) => {
+    if (element.id === dish.id) {
+      return true;
+    }
+    return false;
+  });
 
   return (
     <div>
@@ -9,9 +16,15 @@ function Dish({ dish, addToCart }) {
       <img className="dish-image" src={image} alt={description} />
       <p>{price}</p>
       <p>{description}</p>
-      <button onClick={addToCart} className="btn">
-        Add to Cart
-      </button>
+      {isFound ? (
+        <button onClick={() => removeCartItem(dish.id)} className="btn">
+          Remove from Cart
+        </button>
+      ) : (
+        <button onClick={() => addToCart(dish.id)} className="btn">
+          Add to Cart
+        </button>
+      )}
     </div>
   );
 }

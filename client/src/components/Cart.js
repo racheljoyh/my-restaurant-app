@@ -1,17 +1,24 @@
 import CartItem from "./CartItem";
 
-function Cart({ cart, removeCartItem, cartRemoveAll }) {
-  console.log(cart);
+function Cart({ cart, removeCartItem, cartRemoveAll, cartTotal }) {
   const allCartItems = cart.map((cartItem) => (
     <CartItem
       key={cartItem.id}
-      cart={cart}
+      cartItem={cartItem}
       cartRemoveAll={cartRemoveAll}
       removeCartItem={removeCartItem}
     />
   ));
 
-  return <div>{allCartItems}</div>;
+  return (
+    <div>
+      <button className="btn" onClick={cartRemoveAll}>
+        Remove All Items
+      </button>
+      <div>{allCartItems}</div>
+      <p>Total: {cartTotal}</p>
+    </div>
+  );
 }
 
 export default Cart;

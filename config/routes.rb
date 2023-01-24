@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
   # shopping cart
   get 'shopping_cart', to: 'sessions#shopping_cart'
-  post '/new/:user_id/:dish_id', to: 'shopping_carts#new'
+  post 'new/:user_id/:dish_id', to: 'shopping_carts#new'
   delete '/delete/:user_id', to: 'shopping_carts#delete_all'
   delete '/destroy/:user_id/:dish_id', to: 'shopping_carts#delete_cart_item'
   
