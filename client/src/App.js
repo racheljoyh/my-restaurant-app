@@ -8,6 +8,9 @@ import Cart from "./components/Cart";
 import Profile from "./components/Profile";
 import "./App.css";
 import axios from "axios";
+import Admin from "./components/Admin/Admin";
+import OrderList from "./OrderList";
+import UserList from "./UserList";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -75,7 +78,7 @@ function App() {
     <div>
       <NavBar user={user} setUser={setUser} />
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/*" element={<HomePage />} />
         <Route
           path="/menu"
           element={
@@ -84,6 +87,7 @@ function App() {
               addToCart={addToCart}
               removeCartItem={removeCartItem}
               cart={cart}
+              user={user}
             />
           }
         />
@@ -102,6 +106,10 @@ function App() {
             />
           }
         />
+        <Route path="/admin" element={<Admin user={user} />}>
+          <Route path="orders" element={<OrderList />} />
+          <Route path="users" element={<UserList />} />
+        </Route>
       </Routes>
     </div>
   );

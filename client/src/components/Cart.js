@@ -17,6 +17,7 @@ function Cart({ cart, removeCartItem, cartRemoveAll, cartTotal }) {
       </button>
       <div>{allCartItems}</div>
       <p>Total: {cartTotal}</p>
+      <button className="btn">Place Order</button>
     </div>
   );
 }

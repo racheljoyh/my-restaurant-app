@@ -1,17 +1,35 @@
 class DishesController < ApplicationController
 
+  before_action :check_if_admin,
+                only: [:create, :destroy, :update]
+
   def index
     render json: Dish.all
   end
 
   def create
-    recipe = @current_user.recipes.create!(recipe_params)
-    render json: recipe, status: :created
+    dish = Dish.create!(dish_params)
+    render json: dish, status: :created
   end
+
+  def update
+    dish = Dish.find(params[:id])
+    dish.update!(dish_params)
+    render json: dish, status: :accepted
+  end
+
+  def destroy
+    dish = Dish.find(params[:id])
+    dish.destroy
+    head :no_content
+  end
+
+
+
 
   private
 
-  def recipe_params
+  def dish_params
     params.permit(:title, :price, :description, :image, :category_id )
   end
 end
