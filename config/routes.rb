@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   post '/signup', to: 'users#create'
   patch '/edit_profile', to: 'users#update_profile'
+  
 
    # order routes
   get 'user_orders/:user_id', to: 'orders#user_orders'
@@ -34,6 +35,8 @@ Rails.application.routes.draw do
   get "/admin/users" => "administrators#user_index"
   get "/admin/categories" => "administrators#category_index"
   patch "/admin/orders/:order_id" => "administrators#update_status"
+  delete '/admin/destroy/:id' => "administrators#admin_destroy"
+ 
   
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end

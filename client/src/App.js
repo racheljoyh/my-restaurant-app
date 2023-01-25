@@ -12,6 +12,7 @@ import axios from "axios";
 import AdminHome from "./components/Admin/AdminHome";
 import OrderList from "./components/Admin/OrderList";
 import UserList from "./components/Admin/UserList";
+import NewDishForm from "./components/Admin/NewDishForm";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -21,6 +22,7 @@ function App() {
   const [cartTotal, setCartTotal] = useState(0);
   const [userIndex, setUserIndex] = useState([]);
   const [orderIndex, setOrderIndex] = useState([]);
+  const [category, setCategory] = useState("All");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -39,6 +41,20 @@ function App() {
       }
     });
   }, []);
+
+  function handleAddDish(newDish) {
+    setDishes([newDish, ...dishes]);
+  }
+
+  const filteredDishes = dishes.filter((dish) => {
+    if (category === "All") return true;
+    return dish.category.title === category;
+  });
+
+  function handleDeleteDish(deletedDish) {
+    const updatedDishes = dishes.filter((dish) => dish.id !== deletedDish.id);
+    setDishes(updatedDishes);
+  }
 
   useEffect(() => {
     fetch("/shopping_cart")
@@ -91,8 +107,6 @@ function App() {
       .then((users) => setUserIndex(users));
   }, []);
 
-  console.log(userIndex);
-
   useEffect(() => {
     // fetching users
     fetch("/admin/orders")
@@ -100,7 +114,17 @@ function App() {
       .then((orders) => setOrderIndex(orders));
   }, []);
 
-  if (!user) return <Login onLogin={setUser} />;
+  // optimistic rendering of add and delete users
+  function handleAddUser(newUser) {
+    setUserIndex([newUser, ...userIndex]);
+  }
+
+  function handleDeleteUser(deletedUser) {
+    const updatedUsers = userIndex.filter((user) => user.id !== deletedUser.id);
+    setUserIndex(updatedUsers);
+  }
+
+  if (!user) return <Login onLogin={setUser} handleAddUser={handleAddUser} />;
 
   return (
     <div>
@@ -112,17 +136,20 @@ function App() {
           path="/menu"
           element={
             <Menu
-              dishes={dishes}
+              dishes={filteredDishes}
+              filterBy={category}
+              setCategory={setCategory}
               addToCart={addToCart}
               removeCartItem={removeCartItem}
               cart={cart}
               user={user}
+              handleDeleteDish={handleDeleteDish}
             />
           }
         />
         <Route
           path="/edit_profile"
-          element={<Profile user={user} setUser={setUser} />}
+          element={<Profile user={user} setUser={setUser} handleDeleteUser={handleDeleteUser} />}
         />
         <Route
           path="/cart"
@@ -141,7 +168,19 @@ function App() {
             path="orders"
             element={<OrderList orderIndex={orderIndex} />}
           />
-          <Route path="users" element={<UserList userIndex={userIndex} />} />
+          <Route
+            path="users"
+            element={
+              <UserList
+                userIndex={userIndex}
+                handleDeleteUser={handleDeleteUser}
+              />
+            }
+          />
+          <Route
+            path="dishes/new"
+            element={<NewDishForm handleAddDish={handleAddDish} />}
+          />
         </Route>
         <Route
           path="/checkout"

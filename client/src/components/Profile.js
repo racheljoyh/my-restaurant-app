@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-function Profile({ user, setUser }) {
+function Profile({ user, setUser, handleDeleteUser }) {
   const { first_name, last_name, email, username } = user;
   const [orders, setOrders] = useState([]);
-  const [identifier, setIdentifier] = useState("");
 
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState([]);
@@ -20,7 +19,7 @@ function Profile({ user, setUser }) {
       console.log(response.data);
       setOrders(response.data);
     });
-  }, []);
+  }, [user.id]);
 
   function handleOnChange(e) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -51,6 +50,11 @@ function Profile({ user, setUser }) {
         r.json().then((err) => setErrors(err.errors));
       }
     });
+  }
+
+  function handleDeleteUserClick() {
+    fetch(`/users/${user.id}`, { method: "DELETE" }).then(() => setUser(null));
+    handleDeleteUser(user);
   }
 
   const allOrders = orders.map((order) => {
@@ -100,6 +104,7 @@ function Profile({ user, setUser }) {
           {isLoading ? "Loading..." : "Save"}
         </button>
       </form>
+      <button onClick={handleDeleteUserClick}>Delete Account</button>
       <div>
         {errors.map((err) => (
           <p key={err}>{err}</p>

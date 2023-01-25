@@ -8,6 +8,7 @@ function AdminHome() {
       <nav>
         <Link to="orders">Orders</Link>
         <Link to="users">Users</Link>
+        <Link to="dishes/new">Add New Dish</Link>
       </nav>
 
       <Outlet />

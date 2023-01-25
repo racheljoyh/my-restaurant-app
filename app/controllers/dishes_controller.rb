@@ -7,6 +7,7 @@ class DishesController < ApplicationController
     render json: Dish.all
   end
 
+
   def create
     dish = Dish.create!(dish_params)
     render json: dish, status: :created
@@ -18,13 +19,10 @@ class DishesController < ApplicationController
     render json: dish, status: :accepted
   end
 
-  def destroy
-    dish = Dish.find(params[:id])
-    dish.destroy
-    head :no_content
+ def destroy
+    Dish.find(params[:id]).destroy
+    head :no_content    
   end
-
-
 
 
   private

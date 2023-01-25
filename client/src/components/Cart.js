@@ -7,7 +7,6 @@ function Cart({
   cartTotal,
   handleCheckoutClick,
 }) {
-  console.log(cart);
   const allCartItems = cart.map((cartItem) => (
     <CartItem
       key={cartItem.id}

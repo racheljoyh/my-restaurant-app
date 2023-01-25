@@ -2,7 +2,7 @@ import LoginForm from "./LoginForm";
 import { useState } from "react";
 import SignupForm from "./SignupForm";
 
-function Login({ onLogin }) {
+function Login({ onLogin, handleAddUser }) {
   const [showLogin, setShowLogin] = useState(true);
 
   return (
@@ -20,7 +20,7 @@ function Login({ onLogin }) {
         </>
       ) : (
         <>
-          <SignupForm onLogin={onLogin} />
+          <SignupForm onLogin={onLogin} handleAddUser={handleAddUser} />
           <p>
             Already have an account? &nbsp;
             <button className="btn" onClick={() => setShowLogin(true)}>

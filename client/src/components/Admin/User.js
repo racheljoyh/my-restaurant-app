@@ -1,15 +1,20 @@
-function User({ oneUser }) {
-  const { first_name, last_name, role, email, username } = oneUser;
+function User({ oneUser, handleDeleteUser }) {
+  const { first_name, last_name, email, username } = oneUser;
+
+  function handleDeleteUserClick() {
+    fetch(`/admin/destroy/${oneUser.id}`, { method: "DELETE" }).then(() =>
+      handleDeleteUser(oneUser)
+    );
+  }
 
   return (
     <div>
-      <h3>Role: {role}</h3>
-      <h3>
+      <h3>Username: {username}</h3>
+      <p>
         Name: {first_name} {last_name}
-      </h3>
-      <h4>Username: {username}</h4>
+      </p>
       <p>Email: {email}</p>
-      <button>Delete User</button>
+      <button onClick={handleDeleteUserClick}>Delete User</button>
     </div>
   );
 }

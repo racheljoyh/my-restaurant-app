@@ -1,6 +1,13 @@
 import React from "react";
 
-function Dish({ dish, addToCart, removeCartItem, cart }) {
+function Dish({
+  dish,
+  addToCart,
+  removeCartItem,
+  cart,
+  handleDeleteDish,
+  user,
+}) {
   const { title, description, price, image } = dish;
 
   const isFound = cart.some((element) => {
@@ -10,8 +17,14 @@ function Dish({ dish, addToCart, removeCartItem, cart }) {
     return false;
   });
 
+  function handleDeleteClick() {
+    fetch(`/dishes/${dish.id}`, {
+      method: "DELETE",
+    }).then(() => handleDeleteDish(dish));
+  }
+
   return (
-    <div>
+    <div className="dish-card">
       <h2>{title}</h2>
       <img className="dish-image" src={image} alt={description} />
       <p>{price}</p>
@@ -25,6 +38,9 @@ function Dish({ dish, addToCart, removeCartItem, cart }) {
           Add to Cart
         </button>
       )}
+      {user.role === "admin" ? (
+        <button onClick={handleDeleteClick}>Delete Dish</button>
+      ) : null}
     </div>
   );
 }

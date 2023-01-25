@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-function SignupForm({ onLogin }) {
+function SignupForm({ onLogin, handleAddUser }) {
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState([]);
   const [formData, setFormData] = useState({
@@ -11,6 +12,8 @@ function SignupForm({ onLogin }) {
     password: "",
     password_confirmation: "",
   });
+
+  const navigate = useNavigate();
 
   function handleOnChange(e) {
     setFormData((prevFormData) => {
@@ -23,6 +26,7 @@ function SignupForm({ onLogin }) {
 
   function handleSubmit(e) {
     e.preventDefault();
+
     setErrors([]);
     setIsLoading(true);
     fetch("/signup", {
@@ -41,10 +45,15 @@ function SignupForm({ onLogin }) {
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
-        r.json().then((user) => onLogin(user));
+        r.json().then((user) => {
+          handleAddUser(user);
+          onLogin(user);
+        });
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
+
+      navigate("/");
     });
   }
 

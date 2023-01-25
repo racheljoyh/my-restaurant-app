@@ -1,7 +1,6 @@
 import OrderItem from "./OrderItem";
 
 function OrderList({ orderIndex }) {
-  console.log(orderIndex);
   const allOrders = orderIndex.map((oneOrder) => (
     <OrderItem key={oneOrder.id} oneOrder={oneOrder} />
   ));
