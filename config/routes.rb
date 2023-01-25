@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
    # order routes
   get 'user_orders/:user_id', to: 'orders#user_orders'
-  post '/order/:user_id/:orderId/:price', to: 'sessions#create_order'
+  post '/order/:user_id/:orderId/:total', to: 'sessions#create_order'
 
   # shopping cart
   get 'shopping_cart', to: 'sessions#shopping_cart'

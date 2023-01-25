@@ -65,7 +65,7 @@ function Checkout({
         </button>
       </form>
       {isOpen === true ? (
-        <Popup orderId={orderId} handleClose={handleClose} />
+        <Popup orderId={orderId} handleClose={handleClose} user={user}/>
       ) : null}
     </div>
   );

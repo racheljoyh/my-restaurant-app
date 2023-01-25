@@ -40,7 +40,7 @@ class SessionsController < ApplicationController
 
 
   def create_order
-    order = Order.create(:user_id => params[:user_id], :total => params[:total], :identifier => params[:order_id])
+    order = Order.create(:user_id => params[:user_id], :total => params[:total], :identifier => params[:orderId], :status => params[:status])
     render json: order, serializer: OrderWithUserSerializer, status: :created
     ShoppingCart.delete_all
   end
@@ -61,5 +61,6 @@ class SessionsController < ApplicationController
     end
 
 
+   
 
 end

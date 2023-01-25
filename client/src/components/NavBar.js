@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import React from "react";
 
 function NavBar({ user, setUser }) {
-  const { first_name } = user;
+  const { first_name, role } = user;
 
   function handleLogoutClick() {
     fetch("/logout", { method: "DELETE" }).then((r) => {
@@ -16,12 +16,13 @@ function NavBar({ user, setUser }) {
     <>
       <p>Welcome, {first_name} </p>
       <nav>
-        {user.role === "admin" ? (
+        {role === "admin" ? (
           <nav>
             <NavLink to="/">Home</NavLink>
             <NavLink to="/menu">Menu</NavLink>
-
             <NavLink to="/cart">Cart</NavLink>
+            <NavLink to="/edit_profile">Account</NavLink>
+            <NavLink to="/admin">Admin</NavLink>
           </nav>
         ) : (
           <nav>
@@ -29,7 +30,6 @@ function NavBar({ user, setUser }) {
             <NavLink to="/menu">Menu</NavLink>
             <NavLink to="/cart">Cart</NavLink>
             <NavLink to="/edit_profile">Account</NavLink>
-            <NavLink to="/admin">Admin</NavLink>
           </nav>
         )}
 

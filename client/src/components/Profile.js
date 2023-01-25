@@ -18,6 +18,7 @@ function Profile({ user, setUser }) {
   useEffect(() => {
     axios.get(`/user_orders/${user.id}`).then((response) => {
       console.log(response.data);
+      setOrders(response.data);
     });
   }, []);
 
@@ -39,7 +40,7 @@ function Profile({ user, setUser }) {
         last_name: formData.last_name,
         phone_number: formData.phone_number,
         email: formData.email,
-        user_name: formData.user_name,
+        username: formData.username,
       }),
     }).then((r) => {
       setIsLoading(false);
@@ -55,15 +56,16 @@ function Profile({ user, setUser }) {
   const allOrders = orders.map((order) => {
     return (
       <div key={order.id}>
-        <p>{order.identifier}</p>
-        <p>{order.status}</p>
+        <p>Order Number: {order.identifier}</p>
+        <p>Order Total: $ {order.total}</p>
+        <p>Order Status: {order.status}</p>
       </div>
     );
   });
 
   return (
     <div>
-      <h1>Profile</h1>
+      <h2>Profile</h2>
       <form onSubmit={handleSubmit}>
         <label>First Name: </label>
         <input
@@ -103,6 +105,7 @@ function Profile({ user, setUser }) {
           <p key={err}>{err}</p>
         ))}
       </div>
+      <h2>My Orders</h2>
       <div>{allOrders}</div>
     </div>
   );

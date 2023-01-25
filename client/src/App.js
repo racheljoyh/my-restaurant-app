@@ -80,8 +80,6 @@ function App() {
     if (cartNumber === 0) {
       return;
     } else {
-      // window.scrollTo(0, 0);
-      // setShow(false);
       navigate("/checkout");
     }
   }
@@ -92,6 +90,8 @@ function App() {
       .then((r) => r.json())
       .then((users) => setUserIndex(users));
   }, []);
+
+  console.log(userIndex);
 
   useEffect(() => {
     // fetching users
@@ -137,7 +137,6 @@ function App() {
           }
         />
         <Route path="/admin" element={<AdminHome />}>
-          <Route index element={<OrderList />} />
           <Route
             path="orders"
             element={<OrderList orderIndex={orderIndex} />}
