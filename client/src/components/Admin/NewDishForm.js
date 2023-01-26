@@ -53,9 +53,9 @@ function NewDishForm({ handleAddDish }) {
   }
 
   return (
-    <div>
-      <h2>Add New Dish</h2>
-      <form onSubmit={handleSubmit}>
+    <div className="form-container-signup --new-dish">
+      <h2 className="heading-secondary">Add New Dish</h2>
+      <form className="cta-form-signup" onSubmit={handleSubmit}>
         <label>Title: </label>
         <input
           type="text"
