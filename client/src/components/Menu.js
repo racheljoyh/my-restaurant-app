@@ -27,51 +27,51 @@ function Menu({
   ));
 
   return (
-    <div className="dish-container">
+    <>
       <div className="filter">
-        <label>
-          <strong className="filter-label">Filter: </strong>
-          <div className="filter-box">
-            <input
-              onChange={handleFilterChange}
-              type="radio"
-              value="All"
-              checked={filterBy === "All"}
-            />
-            All
-            <input
-              onChange={handleFilterChange}
-              type="radio"
-              value="Starter"
-              checked={filterBy === "Starter"}
-            />
-            Starters
-            <input
-              onChange={handleFilterChange}
-              type="radio"
-              value="Entree"
-              checked={filterBy === "Entree"}
-            />
-            Entrees
-            <input
-              onChange={handleFilterChange}
-              type="radio"
-              value="Dessert"
-              checked={filterBy === "Dessert"}
-            />
-            Desserts
-            <input
-              onChange={handleFilterChange}
-              type="radio"
-              value="Beverage"
-              checked={filterBy === "Beverage"}
-            />
-            Beverages
-          </div>
-        </label>
+        <strong className="filter-label">Filter: </strong>
+        <div className="filter-box">
+          <input
+            onChange={handleFilterChange}
+            type="radio"
+            value="All"
+            checked={filterBy === "All"}
+          />
+          <span className="label">All</span>
+          <input
+            onChange={handleFilterChange}
+            type="radio"
+            value="Starter"
+            checked={filterBy === "Starter"}
+          />
+          <span className="label">Starters</span>
+          <input
+            onChange={handleFilterChange}
+            type="radio"
+            value="Entree"
+            checked={filterBy === "Entree"}
+          />
+          <span className="label">Entrees</span>
+          <input
+            onChange={handleFilterChange}
+            type="radio"
+            value="Dessert"
+            checked={filterBy === "Dessert"}
+          />
+          <span className="label">Desserts</span>
+          <input
+            onChange={handleFilterChange}
+            type="radio"
+            value="Beverage"
+            checked={filterBy === "Beverage"}
+          />
+          <span className="label">Beverages</span>
+        </div>
       </div>
-      <div>{allDishes}</div>
-    </div>
+      <div className="dish-container">
+        <div>{allDishes}</div>
+      </div>
+    </>
   );
 }
 

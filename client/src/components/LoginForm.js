@@ -34,28 +34,24 @@ function LoginForm({ onLogin }) {
   }
 
   return (
-    <div>
-      <h2>Please Login</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Username:
-          <label>
-            <input
-              type="text"
-              name="user_name"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
-          </label>
-          Password:
-        </label>
+    <div className="form-container">
+      <form className="cta-form" onSubmit={handleSubmit}>
+        <h2 className="heading-secondary">Please Login</h2>
+        <label>Username:</label>
+        <input
+          type="text"
+          name="user_name"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        <label>Password:</label>
         <input
           type="password"
           name="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button className="btn" type="submit">
+        <button className="btn login-btn" type="submit">
           {isLoading ? "Loading..." : "Login"}
         </button>
       </form>

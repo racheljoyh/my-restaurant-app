@@ -17,14 +17,16 @@ function Cart({
   ));
 
   return (
-    <div>
+    <div className="cart-container">
+      <div>{allCartItems}</div>
+      <p className="dish-price">
+        Subtotal: ${cartTotal <= 0 ? "0.00" : cartTotal.toFixed(2)}
+      </p>
+      <button onClick={handleCheckoutClick} className="btn --checkout-btn">
+        Checkout
+      </button>
       <button className="btn" onClick={cartRemoveAll}>
         Remove All Items
-      </button>
-      <div>{allCartItems}</div>
-      <p>Subtotal: ${cartTotal <= 0 ? "0.00" : cartTotal.toFixed(2)}</p>
-      <button onClick={handleCheckoutClick} className="btn">
-        Checkout
       </button>
     </div>
   );

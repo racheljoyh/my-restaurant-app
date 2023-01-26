@@ -57,21 +57,25 @@ function Checkout({
   const totalWithTax = tax + cartTotal;
 
   return (
-    <div>
-      <h2>Your Order</h2>
-      <h3>Items: {cartNumber}</h3>
-      <div>{allCarts}</div>
-      <p>Subtotal: {cartTotal.toFixed(2)}</p>
-      <p>Tax: {tax.toFixed(2)}</p>
-      <p>Total: {totalWithTax.toFixed(2)}</p>
-      <form onSubmit={handlePlaceOrder}>
-        <button className="btn" type="submit">
-          Place Order
-        </button>
-      </form>
-      {isOpen === true ? (
-        <Popup orderId={orderId} handleClose={handleClose} user={user} />
-      ) : null}
+    <div className="checkout-container">
+      <div className="checkout-contain">
+        <h2 className="heading-secondary">Your Order</h2>
+        <h3 className="heading-tertiary">Items: {cartNumber}</h3>
+        <div className="order-details">{allCarts}</div>
+        <div className="price-details">
+          <p className="price-detail">Subtotal: {cartTotal.toFixed(2)}</p>
+          <p className="price-detail">Tax: {tax.toFixed(2)}</p>
+          <p className="price-detail">Total: {totalWithTax.toFixed(2)}</p>
+        </div>
+        <form onSubmit={handlePlaceOrder}>
+          <button className="btn order-btn" type="submit">
+            Place Order
+          </button>
+        </form>
+        {isOpen === true ? (
+          <Popup orderId={orderId} handleClose={handleClose} user={user} />
+        ) : null}
+      </div>
     </div>
   );
 }

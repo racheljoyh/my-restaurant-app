@@ -5,11 +5,17 @@ function Popup({ orderId, handleClose, user }) {
         <span className="close-icon" onClick={handleClose}>
           x
         </span>
-        <h2>Your order is placed, {user.first_name}!</h2>
-        <p>The chef is cooking you up something nice!</p>
-        <p>
-          Your order number is <strong>{orderId}</strong>.
-        </p>
+        <div className="popup-details">
+          <h3 className="heading-tertiary">
+            Your order is placed, {user.first_name}!
+          </h3>
+          <p className="popup-detail">
+            The chef is cooking you up something nice!
+          </p>
+          <p className="popup-detail">
+            Your order number is <strong>{orderId}</strong>.
+          </p>
+        </div>
       </div>
     </div>
   );

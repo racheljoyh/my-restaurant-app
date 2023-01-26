@@ -58,9 +58,9 @@ function SignupForm({ onLogin, handleAddUser }) {
   }
 
   return (
-    <div>
-      <h2>Sign Up</h2>
-      <form onSubmit={handleSubmit}>
+    <div className="form-container-signup">
+      <h2 className="heading-secondary">Sign Up</h2>
+      <form className="cta-form-signup" onSubmit={handleSubmit}>
         <label>First Name: </label>
         <input
           type="text"
@@ -104,7 +104,7 @@ function SignupForm({ onLogin, handleAddUser }) {
           onChange={handleOnChange}
         />
 
-        <button className="btn" type="submit">
+        <button className="btn login-btn" type="submit">
           {isLoading ? "Loading..." : "Signup"}
         </button>
       </form>

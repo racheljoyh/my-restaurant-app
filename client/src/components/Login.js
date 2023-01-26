@@ -11,22 +11,22 @@ function Login({ onLogin, handleAddUser }) {
         <>
           <LoginForm onLogin={onLogin} />
 
-          <p>
-            Don't have an account? &nbsp;
+          <div className="signup-container">
+            <p className="signup-cta-text">Don't have an account?</p>
             <button className="btn" onClick={() => setShowLogin(false)}>
               Sign Up
             </button>
-          </p>
+          </div>
         </>
       ) : (
         <>
           <SignupForm onLogin={onLogin} handleAddUser={handleAddUser} />
-          <p>
-            Already have an account? &nbsp;
+          <div className="login-container">
+            <p className="signup-cta-text">Already have an account?</p>
             <button className="btn" onClick={() => setShowLogin(true)}>
               Log In
             </button>
-          </p>
+          </div>
         </>
       )}
     </div>

@@ -16,6 +16,8 @@ body {
   line-height: 1;
   font-weight: 500;
   color: #555;
+  background-color: #fdf2e9;
+  overflow-x: hidden;
 }
 
 .container {
@@ -68,7 +70,7 @@ body {
 .heading-secondary {
   font-size: 4.4rem;
   line-height: 1.2;
-  margin-bottom: 9.6rem;
+  margin-bottom: 6.2rem;
 }
 
 .heading-tertiary {
@@ -79,7 +81,7 @@ body {
 
 .btn {
   display: inline-block;
-  background-color: #e03131;
+  background-color: #f03e3e;
   text-decoration: none;
   font-size: 2rem;
   font-weight: 600;
@@ -97,13 +99,23 @@ body {
 }
 
 .btn:hover {
+  background-color: #ff6b6b;
+  color: #fff;
+}
+
+.btn--full {
   background-color: #f03e3e;
+  color: #fff5f5;
+}
+
+.btn--full:hover {
+  background-color: #ff6b6b;
 }
 
 .link:link,
 .link:visited {
   display: inline-block;
-  color: #c92a2a;
+  color: #f03e3e;
   text-decoration: none;
   border-bottom: 1px solid currentColor;
   padding-bottom: 2px;
@@ -112,6 +124,11 @@ body {
 
 .link:hover,
 .link:active {
-  color: #c92a2a;
+  color: #f03e3e;
   border-bottom: 1px solid transparent;
+}
+
+/* HELPER/SETTINGS CLASSES */
+.margin-right-sm {
+  margin-right: 1.6rem !important;
 }
