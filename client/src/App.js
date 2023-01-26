@@ -8,6 +8,7 @@ import Cart from "./components/Cart";
 import Checkout from "./components/Checkout";
 import Profile from "./components/Profile";
 import "./App.css";
+
 import axios from "axios";
 import AdminHome from "./components/Admin/AdminHome";
 import OrderList from "./components/Admin/OrderList";
@@ -149,7 +150,13 @@ function App() {
         />
         <Route
           path="/edit_profile"
-          element={<Profile user={user} setUser={setUser} handleDeleteUser={handleDeleteUser} />}
+          element={
+            <Profile
+              user={user}
+              setUser={setUser}
+              handleDeleteUser={handleDeleteUser}
+            />
+          }
         />
         <Route
           path="/cart"

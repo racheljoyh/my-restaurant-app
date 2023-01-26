@@ -13,29 +13,81 @@ function NavBar({ user, setUser }) {
   }
 
   return (
-    <>
-      <p>Welcome, {first_name} </p>
-      <nav>
-        {role === "admin" ? (
-          <nav>
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="/menu">Menu</NavLink>
-            <NavLink to="/cart">Cart</NavLink>
-            <NavLink to="/edit_profile">Account</NavLink>
-            <NavLink to="/admin">Admin</NavLink>
-          </nav>
-        ) : (
-          <nav>
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="/menu">Menu</NavLink>
-            <NavLink to="/cart">Cart</NavLink>
-            <NavLink to="/edit_profile">Account</NavLink>
-          </nav>
-        )}
-
-        <button onClick={handleLogoutClick}>Logout</button>
-      </nav>
-    </>
+    <header className="header">
+      <div className="logo-greeting">
+        <img
+          className="logo"
+          src={"./red-star-transparent-background-12.png"}
+        />
+        <p className="greeting">Welcome, {first_name} </p>
+      </div>
+      {role === "admin" ? (
+        <nav className="main-nav">
+          <ul className="main-nav-list">
+            <li>
+              <NavLink className="main-nav-link" to="/">
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className="main-nav-link" to="/menu">
+                Menu
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className="main-nav-link" to="/cart">
+                Cart
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className="main-nav-link" to="/edit_profile">
+                Account
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className="main-nav-link" to="/admin">
+                Admin
+              </NavLink>
+            </li>
+            <li>
+              <button className="btn" onClick={handleLogoutClick}>
+                Logout
+              </button>
+            </li>
+          </ul>
+        </nav>
+      ) : (
+        <nav className="main-nav">
+          <ul className="main-nav-list">
+            <li>
+              <NavLink className="main-nav-link" to="/">
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className="main-nav-link" to="/menu">
+                Menu
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className="main-nav-link" to="/cart">
+                Cart
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className="main-nav-link" to="/edit_profile">
+                Account
+              </NavLink>
+            </li>
+            <li>
+              <button className="btn" onClick={handleLogoutClick}>
+                Logout
+              </button>
+            </li>
+          </ul>
+        </nav>
+      )}
+    </header>
   );
 }
 

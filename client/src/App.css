@@ -1,5 +1,66 @@
-.dish-image {
-  width: 300px;
+/**************************/
+/* HEADER */
+/**************************/
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffc078;
+
+  /* Because we want header to be sticky later */
+  height: 9.6rem;
+  padding: 0 4.8rem;
+}
+
+/**************************/
+/* NAVIGATION */
+/**************************/
+
+.logo {
+  height: 8.2rem;
+  padding-right: 3.2rem;
+}
+
+.greeting {
+  color: #333;
+  font-weight: 500;
+  font-size: 2rem;
+}
+
+.logo-greeting {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.main-nav-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 3.2rem;
+}
+
+.main-nav-link:link,
+.main-nav-link:visited {
+  display: inline-block;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 1.8rem;
+  transition: all 0.3s;
+}
+
+.main-nav-link:hover,
+.main-nav-link:active {
+  color: #c92a2a;
+}
+
+.main-nav-link.nav-cta:link,
+.main-nav-link.nav-cta:visited {
+  padding: 1.2rem 2.4rem;
+  border-radius: 9px;
+  color: #fff;
+  background-color: #c92a2a;
 }
 
 /* Popup style */
@@ -40,4 +101,8 @@
   text-align: center;
   border: 1px solid #999;
   font-size: 20px;
+}
+
+.dish-image {
+  width: 300px;
 }
