@@ -77,11 +77,11 @@ function NavBar({ user, setUser }) {
               </NavLink>
             </li>
             <li>
-              <li>
-                <NavLink className="main-nav-link" to="/cart">
-                  Cart
-                </NavLink>
-              </li>
+              <NavLink className="main-nav-link" to="/cart">
+                Cart
+              </NavLink>
+            </li>
+            <li>
               <button className="btn" onClick={handleLogoutClick}>
                 Logout
               </button>

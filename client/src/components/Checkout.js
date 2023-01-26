@@ -46,9 +46,9 @@ function Checkout({
 
   const allCarts = cart.map((dish) => {
     return (
-      <div key={dish.id}>
+      <div className="cart-detail-order" key={dish.id}>
         <p>{dish.title}</p>
-        <p>{dish.price}</p>
+        <p>${dish.price}</p>
       </div>
     );
   });
