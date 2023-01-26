@@ -6,8 +6,8 @@ function OrderList({ orderIndex }) {
   ));
 
   return (
-    <div>
-      <h3>{allOrders}</h3>
+    <div className="all-orders">
+      <div>{allOrders}</div>
     </div>
   );
 }

@@ -44,13 +44,12 @@ function OrderItem({ oneOrder }) {
   }
 
   return (
-    <div>
-      <h3>Customer:</h3>
+    <div className="all-orders-card">
       <p>
-        {first_name} {last_name}
+        Customer: {first_name} {last_name}
       </p>
       <p>Order Number: {identifier}</p>
-      <p>Total: {total}</p>
+      <p>Total: ${total}</p>
       <form onSubmit={handleSubmit}>
         <select
           name="status"

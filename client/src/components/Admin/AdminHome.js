@@ -3,7 +3,7 @@ import { Link, Outlet } from "react-router-dom";
 function AdminHome() {
   return (
     <div className="admin-container">
-      <h2 className="heading-secondary">Admin Actions</h2>
+      <h2 className="heading-tertiary">Admin Actions</h2>
       <nav className="admin-nav">
         <Link to="orders">
           <svg
