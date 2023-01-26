@@ -8,13 +8,15 @@ function User({ oneUser, handleDeleteUser }) {
   }
 
   return (
-    <div>
-      <h3>Username: {username}</h3>
+    <div className="all-users-card">
+      <p>Username: {username}</p>
       <p>
         Name: {first_name} {last_name}
       </p>
       <p>Email: {email}</p>
-      <button onClick={handleDeleteUserClick}>Delete User</button>
+      <button className="btn --delete-user" onClick={handleDeleteUserClick}>
+        Delete User
+      </button>
     </div>
   );
 }

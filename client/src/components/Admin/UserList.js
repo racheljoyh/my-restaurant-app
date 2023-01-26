@@ -2,11 +2,17 @@ import User from "./User";
 
 function UserList({ userIndex, handleDeleteUser }) {
   const allUsers = userIndex.map((oneUser) => (
-    <User key={oneUser.id} oneUser={oneUser} handleDeleteUser={handleDeleteUser}/>
+    <User
+      key={oneUser.id}
+      oneUser={oneUser}
+      handleDeleteUser={handleDeleteUser}
+    />
   ));
-  return <div>
-    <h3>{allUsers}</h3>
-    </div>;
+  return (
+    <div>
+      <div className="all-users">{allUsers}</div>
+    </div>
+  );
 }
 
 export default UserList;

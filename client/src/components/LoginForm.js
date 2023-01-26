@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Logo from "./images/logo.png";
 
 function LoginForm({ onLogin }) {
   const [username, setUsername] = useState("");
@@ -34,33 +35,36 @@ function LoginForm({ onLogin }) {
   }
 
   return (
-    <div className="form-container">
-      <form className="cta-form" onSubmit={handleSubmit}>
-        <h2 className="heading-secondary">Please Login</h2>
-        <label>Username:</label>
-        <input
-          type="text"
-          name="user_name"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button className="btn login-btn" type="submit">
-          {isLoading ? "Loading..." : "Login"}
-        </button>
-      </form>
-      <div>
-        {errors.map((err) => (
-          <p key={err}>{err}</p>
-        ))}
+    <>
+      <img className="logo-login" src={Logo} />
+      <div className="form-container">
+        <form className="cta-form" onSubmit={handleSubmit}>
+          <h2 className="heading-secondary">Please Login</h2>
+          <label>Username:</label>
+          <input
+            type="text"
+            name="user_name"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <label>Password:</label>
+          <input
+            type="password"
+            name="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button className="btn login-btn" type="submit">
+            {isLoading ? "Loading..." : "Login"}
+          </button>
+        </form>
+        <div>
+          {errors.map((err) => (
+            <p key={err}>{err}</p>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

@@ -37,13 +37,13 @@ function NavBar({ user, setUser }) {
               </NavLink>
             </li>
             <li>
-              <NavLink className="main-nav-link" to="/cart">
-                Cart
+              <NavLink className="main-nav-link" to="/edit_profile">
+                Account
               </NavLink>
             </li>
             <li>
-              <NavLink className="main-nav-link" to="/edit_profile">
-                Account
+              <NavLink className="main-nav-link" to="/cart">
+                Cart
               </NavLink>
             </li>
             <li>
@@ -72,16 +72,16 @@ function NavBar({ user, setUser }) {
               </NavLink>
             </li>
             <li>
-              <NavLink className="main-nav-link" to="/cart">
-                Cart
-              </NavLink>
-            </li>
-            <li>
               <NavLink className="main-nav-link" to="/edit_profile">
                 Account
               </NavLink>
             </li>
             <li>
+              <li>
+                <NavLink className="main-nav-link" to="/cart">
+                  Cart
+                </NavLink>
+              </li>
               <button className="btn" onClick={handleLogoutClick}>
                 Logout
               </button>
