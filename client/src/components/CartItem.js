@@ -1,5 +1,5 @@
 function CartItem({ cartItem, removeCartItem }) {
-  const { title, image, price, description } = cartItem;
+  const { title, price } = cartItem;
 
   return (
     <div className="cart-card">

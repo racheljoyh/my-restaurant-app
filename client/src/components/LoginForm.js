@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Logo from "./images/logo.png";
 
 function LoginForm({ onLogin }) {
   const [username, setUsername] = useState("");

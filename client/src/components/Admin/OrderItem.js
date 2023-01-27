@@ -65,6 +65,11 @@ function OrderItem({ oneOrder }) {
           {isLoading ? "Loading..." : "Update"}
         </button>
       </form>
+      <div className="errors">
+        {errors.map((err) => (
+          <p key={err}>{err}!</p>
+        ))}
+      </div>
     </div>
   );
 }

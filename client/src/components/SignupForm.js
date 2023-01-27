@@ -59,8 +59,8 @@ function SignupForm({ onLogin, handleAddUser }) {
 
   return (
     <div className="form-container-signup">
-      <h2 className="heading-secondary">Sign Up</h2>
       <form className="cta-form-signup" onSubmit={handleSubmit}>
+        <h2 className="heading-secondary">Sign Up</h2>
         <label>First Name: </label>
         <input
           type="text"
@@ -108,9 +108,9 @@ function SignupForm({ onLogin, handleAddUser }) {
           {isLoading ? "Loading..." : "Signup"}
         </button>
       </form>
-      <div>
+      <div className="errors">
         {errors.map((err) => (
-          <p key={err}>{err}</p>
+          <p key={err}>{err}!</p>
         ))}
       </div>
     </div>

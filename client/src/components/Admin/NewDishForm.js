@@ -97,7 +97,7 @@ function NewDishForm({ handleAddDish }) {
           <option value="4">Beverage</option>
         </select>
 
-        <button className="btn" type="submit">
+        <button className="btn --submit-dish" type="submit">
           {isLoading ? "Loading..." : "Submit"}
         </button>
       </form>
