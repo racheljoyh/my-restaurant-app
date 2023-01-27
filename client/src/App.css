@@ -18,6 +18,12 @@
   width: 100%;
 }
 
+.errors {
+  color: #f03e3e;
+  font-size: 2.2rem;
+  margin-top: 2rem;
+}
+
 /**************************/
 /* NAVIGATION */
 /**************************/
@@ -327,19 +333,18 @@
   padding-top: 9.6rem;
   max-width: 50rem;
   margin: 0 auto;
-  z-index: 0;
 }
 
-.logo-login {
+/* .logo-login {
   width: 200px;
   height: 200px;
   position: fixed;
   /* right: 650px;
   top: 30px;*/
-  z-index: 1;
+/* z-index: 1;
   right: calc(34% - 0.5px);
   top: calc(100vh - 85vh - 5px);
-}
+}  */
 
 .cta-form {
   position: relative;
@@ -350,6 +355,14 @@
   border-radius: 11px;
   background-color: #fffafa;
   margin-top: calc(100vh - 85vh - 20px);
+}
+
+.cta-form::after {
+  content: url(./components/images/logo.png);
+  position: absolute;
+  top: -160%;
+  right: -220%;
+  transform: scale(0.1);
 }
 
 .cta-form label {
@@ -373,7 +386,7 @@
 }
 
 .login-btn {
-  margin-top: 2rem;
+  margin-top: 4rem;
 }
 
 /**************************/
@@ -403,17 +416,26 @@
 .cta-form-signup {
   display: flex;
   flex-direction: column;
-  column-gap: 3.2rem;
-  row-gap: 2.4rem;
+  position: relative;
   padding: 9.6rem;
   box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
   border-radius: 11px;
   background-color: #fffafa;
 }
+
+.cta-form-signup::after {
+  content: url(./components/images/logo.png);
+  position: absolute;
+  top: -102%;
+  right: -185%;
+  transform: scale(0.1);
+}
+
 .cta-form-signup label {
   display: block;
   font-size: 2rem;
   font-weight: 500;
+  margin-top: 2.6rem;
   margin-bottom: 1.2rem;
 }
 
@@ -557,6 +579,42 @@
 
 .--new-dish {
   padding-bottom: 9.6rem;
+}
+
+.form-container-new-dish {
+  padding-top: 9.6rem;
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+.cta-form-new-dish {
+  display: flex;
+  flex-direction: column;
+  padding: 9.6rem;
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
+  border-radius: 11px;
+  background-color: #fffafa;
+}
+
+.cta-form-new-dish label {
+  display: block;
+  font-size: 2rem;
+  font-weight: 500;
+  margin-top: 2.6rem;
+  margin-bottom: 1.2rem;
+}
+
+.cta-form-new-dish input,
+.cta-form-new-dish select {
+  width: 100%;
+  padding: 1.2rem;
+  font-size: 1.8rem;
+  font-family: inherit;
+  color: inherit;
+  border: none;
+  background-color: #eaeaea;
+  border-radius: 9px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 /**************************/

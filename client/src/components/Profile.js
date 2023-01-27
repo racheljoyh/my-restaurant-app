@@ -53,8 +53,9 @@ function Profile({ user, setUser, handleDeleteUser }) {
   }
 
   function handleDeleteUserClick() {
-    fetch(`/users/${user.id}`, { method: "DELETE" }).then(() => setUser(null));
     handleDeleteUser(user);
+    fetch(`/users/${user.id}`, { method: "DELETE" }).then(() => setUser(null));
+    
   }
 
   const allOrders = orders.map((order) => {

@@ -36,7 +36,6 @@ function LoginForm({ onLogin }) {
 
   return (
     <>
-      <img className="logo-login" src={Logo} />
       <div className="form-container">
         <form className="cta-form" onSubmit={handleSubmit}>
           <h2 className="heading-secondary">Please Login</h2>
@@ -58,9 +57,9 @@ function LoginForm({ onLogin }) {
             {isLoading ? "Loading..." : "Login"}
           </button>
         </form>
-        <div>
+        <div className="errors">
           {errors.map((err) => (
-            <p key={err}>{err}</p>
+            <p key={err}>{err}!</p>
           ))}
         </div>
       </div>
