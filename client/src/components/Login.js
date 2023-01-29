@@ -9,6 +9,9 @@ function Login({ onLogin, handleAddUser }) {
     <div>
       {showLogin ? (
         <>
+          <h1 className="heading-primary login-greeting">
+            Welcome to Red Star Thai
+          </h1>
           <LoginForm onLogin={onLogin} />
 
           <div className="signup-container">
@@ -20,6 +23,9 @@ function Login({ onLogin, handleAddUser }) {
         </>
       ) : (
         <>
+          <h1 className="heading-primary login-greeting">
+            Welcome to Red Star Thai
+          </h1>
           <SignupForm onLogin={onLogin} handleAddUser={handleAddUser} />
           <div className="login-container">
             <p className="signup-cta-text">Already have an account?</p>

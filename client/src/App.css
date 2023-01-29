@@ -335,6 +335,15 @@
   margin: 0 auto;
 }
 
+.login-greeting {
+  display: flex;
+  justify-content: center;
+  color: #f03e3e;
+  margin: 0 auto;
+  max-width: 100rem;
+  padding-top: 4.8rem;
+}
+
 /* .logo-login {
   width: 200px;
   height: 200px;
