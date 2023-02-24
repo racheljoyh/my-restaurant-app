@@ -37,7 +37,9 @@ function App() {
   useEffect(() => {
     fetch("/dishes").then((r) => {
       if (r.ok) {
-        r.json().then((dishes) => setDishes(dishes));
+        r.json().then((dishes) => {
+          setDishes(dishes);
+        });
       }
     });
   }, []);

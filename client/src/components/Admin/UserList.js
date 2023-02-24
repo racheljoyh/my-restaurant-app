@@ -8,6 +8,8 @@ function UserList({ userIndex, handleDeleteUser }) {
       handleDeleteUser={handleDeleteUser}
     />
   ));
+
+  if (!allUsers) return <h2 className="heading-secondary">"Loading..."</h2>;
   return (
     <div>
       <div className="all-users">{allUsers}</div>

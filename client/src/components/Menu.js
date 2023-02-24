@@ -26,6 +26,8 @@ function Menu({
     />
   ));
 
+  if (!allDishes) return <p className="heading-secondary">"Loading..."</p>;
+
   return (
     <>
       <div className="filter">
