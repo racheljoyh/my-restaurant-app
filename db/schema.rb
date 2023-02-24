@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_24_021437) do
+ActiveRecord::Schema.define(version: 2023_01_24_014804) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
     t.string "title"
@@ -23,14 +26,14 @@ ActiveRecord::Schema.define(version: 2023_01_24_021437) do
     t.float "price"
     t.string "description"
     t.string "image"
-    t.integer "category_id", null: false
+    t.bigint "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_dishes_on_category_id"
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.float "total"
     t.string "status", default: "Pending..."
     t.string "identifier"
@@ -42,8 +45,8 @@ ActiveRecord::Schema.define(version: 2023_01_24_021437) do
   create_table "reviews", force: :cascade do |t|
     t.string "title"
     t.string "content"
-    t.integer "user_id", null: false
-    t.integer "dish_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "dish_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["dish_id"], name: "index_reviews_on_dish_id"
@@ -51,8 +54,8 @@ ActiveRecord::Schema.define(version: 2023_01_24_021437) do
   end
 
   create_table "shopping_carts", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "dish_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "dish_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["dish_id"], name: "index_shopping_carts_on_dish_id"
